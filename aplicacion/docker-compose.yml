@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  bn-mariadb:
+    container_name: bn-mariadb
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: bookmedik
+      MARIADB_USER: admin
+      MARIADB_PASSWORD: admin
+    volumes:
+      - mariadb_data:/var/lib/mysql
+  bookmedik:
+    container_name: bn-bookmedik
+    image: belennazareth/bookmedik:v2
+    restart: always
+    environment:
+      bookmedik_user: admin
+      bookmedik_passwd: admin
+      host_database: bn-mariadb
+      db_name: bookmedik
+    ports:
+      - 8081:80
+    depends_on:
+      - bn-mariadb
+volumes:
+    mariadb_data:
