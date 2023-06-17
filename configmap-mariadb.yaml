@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  bd_name: bookmedik
+  bd_user: nazareth
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: cm-mariadb
