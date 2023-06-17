@@ -4,7 +4,7 @@ metadata:
     name: bookmedik
 spec:
     rules:
-    - host: www.nazareth.com
+    - host: www.nazareth.org
       http:
           paths:
           - path: /

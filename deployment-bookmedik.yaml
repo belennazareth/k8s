@@ -9,8 +9,8 @@ spec:
     replicas: 2
     selector:
         matchLabels:
-           app: bookmedik
-           tier: frontend
+            app: bookmedik
+            tier: frontend
     template:
         metadata:
             labels:
@@ -19,21 +19,21 @@ spec:
         spec:
             containers:
                 - name: bookmedik
-                  image: belennazareth/bookmedik:v1
+                  image: belennazareth/bookmedik:v2
                   env:
-                    - name: DB_HOST
+                    - name: host_database
                       value: mariadb
-                    - name: DB_NAME
+                    - name: db_name
                       valueFrom:
                         configMapKeyRef:
                           name: cm-mariadb
                           key: bd_name
-                    - name: BOOK_PASSWORD
+                    - name: bookmedik_passwd
                       valueFrom:
                         secretKeyRef:
                           name: secret-mariadb
                           key: passwd_user
-                    - name: BOOK_USER
+                    - name: bookmedik_user
                       valueFrom:
                         configMapKeyRef:
                           name: cm-mariadb

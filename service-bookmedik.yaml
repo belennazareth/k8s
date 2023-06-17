@@ -6,10 +6,10 @@ metadata:
     app: bookmedik
     tier: frontend
 spec:
-    type: NodePort
-    ports:
-    - port: 80
-      targetPort: bookmedik-port
-    selector:
-        app: bookmedik
-        tier: frontend
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: bookmedik
+  selector:
+    app: bookmedik
+    tier: frontend

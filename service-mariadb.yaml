@@ -6,10 +6,10 @@ metadata:
     app: mariadb
     tier: backend
 spec:
-    type: ClusterIP
-    ports:
-    - port: 3306
-      targetPort: mariadb-port
-    selector:
-      app: mariadb
-      tier: backend
+  type: ClusterIP
+  ports:
+  - port: 3306
+    targetPort: mariadb
+  selector:
+    app: mariadb
+    tier: backend
